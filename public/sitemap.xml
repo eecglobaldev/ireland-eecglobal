@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  
+  <!-- ====================================================================
+       SITEMAP - ireland.eecglobal.com
+       Study in Ireland 2026 Guide for Indian Students
+       Organization: Enbee Education Center Private Limited (EEC)
+       Last Updated: 2025-12-18
+       ==================================================================== -->
+
+  <!-- Homepage / Main Landing -->
+  <url>
+    <loc>https://ireland.eecglobal.com/</loc>
+    <lastmod>2025-12-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://ai.eecglobal.com/assets/ireland.png</image:loc>
+      <image:title>Study in Ireland 2026 - Complete Guide for Indian Students</image:title>
+      <image:caption>Ireland study abroad guide by EEC - Gujarat's largest study abroad consultancy</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Section: Home (Road from India) -->
+  <url>
+    <loc>https://ireland.eecglobal.com/#home</loc>
+    <lastmod>2025-12-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Section: Money/Costs Dashboard -->
+  <url>
+    <loc>https://ireland.eecglobal.com/#money</loc>
+    <lastmod>2025-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Section: Cities/Regional Explorer -->
+  <url>
+    <loc>https://ireland.eecglobal.com/#cities</loc>
+    <lastmod>2025-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Section: Apply/Admissions -->
+  <url>
+    <loc>https://ireland.eecglobal.com/#apply</loc>
+    <lastmod>2025-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Section: Visa Checklist -->
+  <url>
+    <loc>https://ireland.eecglobal.com/#visa</loc>
+    <lastmod>2025-12-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+  </url>
+
+  <!-- Section: Cost Calculator -->
+  <url>
+    <loc>https://ireland.eecglobal.com/#calculator</loc>
+    <lastmod>2025-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Section: Family/Spouse Visas -->
+  <url>
+    <loc>https://ireland.eecglobal.com/#family</loc>
+    <lastmod>2025-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Section: Stay/Pathways (Stamp 1G) -->
+  <url>
+    <loc>https://ireland.eecglobal.com/#stay</loc>
+    <lastmod>2025-12-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+</urlset>
+

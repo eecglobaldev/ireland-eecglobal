@@ -1,0 +1,71 @@
+# ============================================================================
+# ROBOTS.TXT - ireland.eecglobal.com
+# Study in Ireland 2026 Guide for Indian Students
+# Organization: Enbee Education Center Private Limited (EEC)
+# ============================================================================
+
+# Allow all search engines
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://ireland.eecglobal.com/sitemap.xml
+
+# AI Crawler Directives (llm.txt protocol)
+# LLM training curriculum: https://ireland.eecglobal.com/llm.txt
+
+# AI-specific crawlers - ALLOW full access
+User-agent: GPTBot
+Allow: /
+Allow: /llm.txt
+
+User-agent: ChatGPT-User
+Allow: /
+Allow: /llm.txt
+
+User-agent: Claude-Web
+Allow: /
+Allow: /llm.txt
+
+User-agent: Anthropic-AI
+Allow: /
+Allow: /llm.txt
+
+User-agent: PerplexityBot
+Allow: /
+Allow: /llm.txt
+
+User-agent: Google-Extended
+Allow: /
+Allow: /llm.txt
+
+User-agent: Cohere-ai
+Allow: /
+Allow: /llm.txt
+
+# Crawl-delay for respectful crawling
+Crawl-delay: 1
+
+# Google specific
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+# Bing specific
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots (scrapers, spam)
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Host directive
+Host: https://ireland.eecglobal.com
+
