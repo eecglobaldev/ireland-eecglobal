@@ -78,7 +78,7 @@ const VisaChecklist: React.FC = () => {
               <div className="p-3 bg-indigo-50 rounded-xl text-indigo-600">
                 <FileText size={20} />
               </div>
-              <h3 className="font-black text-lg tracking-tight uppercase tracking-widest">Your Paperwork</h3>
+              <h3 className="font-black text-lg tracking-tight uppercase tracking-widest text-slate-900">Your Paperwork</h3>
             </div>
             <div className="space-y-3">
                {[

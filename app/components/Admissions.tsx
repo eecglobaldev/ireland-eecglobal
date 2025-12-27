@@ -192,7 +192,7 @@ const Admissions: React.FC = () => {
           <div className="bg-white p-6 sm:p-10 rounded-[2rem] sm:rounded-[3rem] border border-slate-100 shadow-xl space-y-6">
             <div className="flex items-center gap-3 border-b border-slate-50 pb-6">
               <Info className="text-indigo-600" size={24} />
-              <h3 className="font-black text-lg sm:text-xl tracking-tight uppercase tracking-widest">Apply Tips</h3>
+              <h3 className="font-black text-lg sm:text-xl tracking-tight uppercase tracking-widest text-slate-900">Apply Tips</h3>
             </div>
             <ul className="space-y-4">
               {[
