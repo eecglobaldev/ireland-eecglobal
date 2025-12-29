@@ -58,6 +58,7 @@ const Header = () => {
                                 fill
                                 className="object-contain"
                                 priority
+                                unoptimized
                             />
                         </div>
                         <div className="text-left">
@@ -69,6 +70,7 @@ const Header = () => {
                                             alt="Ireland Flag"
                                             fill
                                             className="object-contain"
+                                            unoptimized
                                             suppressHydrationWarning
                                         />
                                     </div>
@@ -132,6 +134,7 @@ const Header = () => {
                                     alt="EEC"
                                     fill
                                     className="object-contain"
+                                    unoptimized
                                     suppressHydrationWarning
                                 />
                             </div>
@@ -143,6 +146,7 @@ const Header = () => {
                                         alt="Ireland Flag"
                                         fill
                                         className="object-contain"
+                                        unoptimized
                                         suppressHydrationWarning
                                     />
                                 </div>
