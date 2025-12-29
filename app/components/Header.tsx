@@ -48,18 +48,20 @@ const Header = () => {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between" suppressHydrationWarning>
                     <Link href="/" className="flex items-center space-x-2 group outline-none">
                         {/* EEC Logo */}
-                        <div className="relative h-12 w-auto aspect-[4/1]">
+                        <div
+                            className="relative h-9 sm:h-12 w-auto aspect-[4/1]"
+                            suppressHydrationWarning
+                        >
                             <Image
                                 src="https://ai.eecglobal.com/assets/logos/eeclogo-main.png"
                                 alt="EEC"
                                 fill
                                 className="object-contain"
                                 priority
-                                suppressHydrationWarning
                             />
                         </div>
                         <div className="text-left">
-                            <h1 className="text-xl sm:text-xl lg:text-2xl font-black text-slate-900 tracking-tighter leading-none whitespace-nowrap flex flex-row items-center gap-2 justify-center">
+                            <h1 className="text-base sm:text-xl lg:text-2xl font-black text-slate-900 tracking-tighter leading-none whitespace-normal sm:whitespace-nowrap flex flex-wrap sm:flex-nowrap flex-row items-center gap-2 justify-start sm:justify-center" suppressHydrationWarning>
                                 Study in<span className="text-emerald-600 flex flex-row items-center gap-2"> Ireland
                                     <div className="relative h-8 w-8 lg:h-10 lg:w-10">
                                         <Image

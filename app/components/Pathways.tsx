@@ -3,7 +3,7 @@ import { Lock, Unlock, Briefcase, Award, ShieldCheck, Milestone, Star } from 'lu
 
 const MilestoneCard = ({ title, duration, status, icon: Icon, description, color, requirements }: any) => (
   <div className={`p-6 sm:p-10 rounded-[2.5rem] sm:rounded-[3rem] border-2 bg-white shadow-xl transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 relative overflow-hidden group ${color}`}>
-    <div className="absolute top-0 right-0 w-32 h-32 opacity-10 group-hover:opacity-20 transition-opacity text-slate-900">
+    <div className="absolute top-0 right-0 w-32 h-32 opacity-5">
       <Icon size={120} />
     </div>
 

@@ -108,6 +108,7 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // Cache busting: v2
   return (
     <html lang="en-IN" dir="ltr" prefix="og: https://ogp.me/ns#" suppressHydrationWarning>
       <body className={inter.className} suppressHydrationWarning>

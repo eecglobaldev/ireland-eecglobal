@@ -174,14 +174,14 @@ const Admissions: React.FC = () => {
 
             <div className="space-y-4">
               {[
-                { l: "Hardest to enter", color: "text-pink-400", fill: "fill-pink-400", unis: "Trinity, UCD, UCC" },
-                { l: "Popular choices", color: "text-amber-400", fill: "fill-amber-400", unis: "UL, DCU, TU Dublin, Galway" },
-                { l: "High Acceptance", color: "text-emerald-400", fill: "fill-emerald-400", unis: "NCI, SETU, Griffith, ATU" }
+                { l: "Hardest to enter", c: "pink", unis: "Trinity, UCD, UCC" },
+                { l: "Popular choices", c: "amber", unis: "UL, DCU, TU Dublin, Galway" },
+                { l: "High Acceptance", c: "emerald", unis: "NCI, SETU, Griffith, ATU" }
               ].map((rank, i) => (
                 <div key={i} className="p-5 bg-white/5 border border-white/10 rounded-2xl group-hover:bg-white/10 transition-all">
                   <div className="flex justify-between items-center mb-3">
-                    <span className={`font-black text-[9px] ${rank.color} uppercase tracking-widest`}>{rank.l}</span>
-                    <Star size={12} className={`${rank.color} ${rank.fill}`} />
+                    <span className={`font-black text-[9px] text-${rank.c}-400 uppercase tracking-widest`}>{rank.l}</span>
+                    <Star size={12} className={`text-${rank.c}-400 fill-${rank.c}-400`} />
                   </div>
                   <p className="text-[11px] sm:text-xs font-bold text-slate-200">{rank.unis}</p>
                 </div>
