@@ -19,7 +19,7 @@ const GROWTH_DATA = [
 
 const StatCard = ({ title, value, subtext, icon: Icon, trend }: any) => (
   <div className="bg-white p-5 sm:p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-xl transition-all relative overflow-hidden group">
-    <div className="absolute -top-4 -right-4 opacity-5 group-hover:opacity-10 transition-opacity">
+    <div className="absolute -top-4 -right-4 opacity-10 group-hover:opacity-20 transition-opacity text-slate-900">
       <Icon size={120} />
     </div>
     <div className="relative z-10">
