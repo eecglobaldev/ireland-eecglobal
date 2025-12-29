@@ -40,10 +40,13 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: '/icon.svg', type: 'image/svg+xml' },
-      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.ico', type: 'image/x-icon', sizes: 'any' },
     ],
     apple: [
       { url: 'https://ai.eecglobal.com/assets/logos/eeclogo-main.png', sizes: '180x180' },
+    ],
+    shortcut: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
     ],
   },
   openGraph: {

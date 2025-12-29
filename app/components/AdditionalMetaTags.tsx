@@ -173,6 +173,23 @@ export default function AdditionalMetaTags() {
       setLinkTag("alternate", href, undefined, undefined, lang);
     });
 
+    // Favicon - Add explicit link tags for better production support
+    // Primary SVG favicon (Ireland flag)
+    setLinkTag("icon", "/icon.svg", "image/svg+xml");
+    // Fallback ICO favicon
+    setLinkTag("icon", "/favicon.ico", "image/x-icon", undefined, undefined);
+    // Alternative format for better browser support
+    const existingIcon = document.querySelector('link[rel="icon"][href="/icon.svg"]');
+    if (existingIcon) {
+      existingIcon.setAttribute("type", "image/svg+xml");
+    }
+    // Ensure favicon.ico is also available
+    const existingFavicon = document.querySelector('link[rel="icon"][href="/favicon.ico"]');
+    if (existingFavicon) {
+      existingFavicon.setAttribute("type", "image/x-icon");
+      existingFavicon.setAttribute("sizes", "any");
+    }
+
     // Apple Touch Icon
     setLinkTag("apple-touch-icon", "https://ai.eecglobal.com/assets/logos/eeclogo-main.png", undefined, undefined);
     const appleIcon = document.querySelector('link[rel="apple-touch-icon"]');
