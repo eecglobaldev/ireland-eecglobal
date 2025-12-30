@@ -669,7 +669,7 @@ const Footer: React.FC = () => {
           "datePublished": r.datePublished,
           "reviewRating": { "@type": "Rating", "ratingValue": r.reviewRating, "bestRating": 5 },
           "reviewBody": r.reviewBody,
-          "itemReviewed": { "@type": "Service", "name": r.itemReviewed || "EEC Study Abroad Consultation Services" }
+          "itemReviewed": { "@type": "LocalBusiness", "name": "EEC", "image": "https://ai.eecglobal.com/assets/logos/eeclogo-main.png" }
         })),
         "telephone": ORGANIZATION.phone,
         "email": ORGANIZATION.email,
@@ -1154,8 +1154,8 @@ const Footer: React.FC = () => {
               itemType="https://schema.org/Review"
             >
               {/* Hidden itemReviewed for schema validation */}
-              <span itemProp="itemReviewed" itemScope itemType="https://schema.org/Service" style={{ display: 'none' }}>
-                <meta itemProp="name" content={r.itemReviewed || "EEC Study Abroad Consultation Services"} />
+              <span itemProp="itemReviewed" itemScope itemType="https://schema.org/LocalBusiness" style={{ display: 'none' }}>
+                <meta itemProp="name" content="EEC" />
               </span>
               <div className="flex items-center gap-1 mb-3">
                 {[...Array(r.reviewRating)].map((_, i) => (
