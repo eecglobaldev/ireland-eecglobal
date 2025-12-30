@@ -364,8 +364,8 @@ const CityBranchModal: React.FC<CityBranchModalProps> = ({ isOpen, onClose, city
                           <div
                             key={rIdx}
                             className={`w-1.5 h-1.5 rounded-full transition-all ${(activeReviewIndex[branch.id] || 0) === rIdx
-                                ? 'bg-emerald-500 w-4'
-                                : 'bg-slate-200'
+                              ? 'bg-emerald-500 w-4'
+                              : 'bg-slate-200'
                               }`}
                           />
                         ))}
@@ -376,8 +376,8 @@ const CityBranchModal: React.FC<CityBranchModalProps> = ({ isOpen, onClose, city
                         <div
                           key={rIdx}
                           className={`absolute inset-0 transition-all duration-500 ${(activeReviewIndex[branch.id] || 0) === rIdx
-                              ? 'opacity-100 translate-x-0'
-                              : 'opacity-0 translate-x-4'
+                            ? 'opacity-100 translate-x-0'
+                            : 'opacity-0 translate-x-4'
                             }`}
                         >
                           <div className="flex gap-1 mb-1">
@@ -1154,9 +1154,9 @@ const Footer: React.FC = () => {
               itemType="https://schema.org/Review"
             >
               {/* Hidden itemReviewed for schema validation */}
-              <div itemProp="itemReviewed" itemScope itemType="https://schema.org/Service" className="hidden">
-                <span itemProp="name">{r.itemReviewed || "EEC Study Abroad Consultation Services"}</span>
-              </div>
+              <span itemProp="itemReviewed" itemScope itemType="https://schema.org/Service" style={{ display: 'none' }}>
+                <meta itemProp="name" content={r.itemReviewed || "EEC Study Abroad Consultation Services"} />
+              </span>
               <div className="flex items-center gap-1 mb-3">
                 {[...Array(r.reviewRating)].map((_, i) => (
                   <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
