@@ -780,9 +780,28 @@ const Footer: React.FC = () => {
         "eventAttendanceMode": `https://schema.org/${e.eventAttendanceMode}`,
         "location": e.eventAttendanceMode === "OnlineEventAttendanceMode"
           ? { "@type": "VirtualLocation", "url": e.location.url }
-          : { "@type": "Place", "name": e.location.name, "address": e.location.address },
+          : {
+            "@type": "Place",
+            "name": e.location.name,
+            "address": e.location.address,
+            ...(e.location.url ? { "url": e.location.url } : {})
+          },
         "organizer": { "@id": "https://eecglobal.com/#organization" },
-        "offers": { "@type": "Offer", "price": e.offers.price, "priceCurrency": e.offers.priceCurrency, "availability": "https://schema.org/InStock" }
+        ...(e.performer ? {
+          "performer": {
+            "@type": "Person",
+            "name": e.performer
+          }
+        } : {}),
+        "offers": {
+          "@type": "Offer",
+          "price": e.offers.price,
+          "priceCurrency": e.offers.priceCurrency,
+          "availability": "https://schema.org/InStock",
+          ...(e.offers.validFrom ? { "validFrom": e.offers.validFrom } : {}),
+          ...(e.offers.url ? { "url": e.offers.url } : {})
+        },
+        "image": e.image || "https://ai.eecglobal.com/assets/ireland-og-image.png"
       })),
 
       // ITEMLIST - UNIVERSITY RANKINGS
