@@ -3,12 +3,12 @@
  * Creates structured data schemas for Article, HowTo, FAQPage, Service, Event, and Person
  */
 
-import { 
-  HOWTO_VISA_APPLICATION, 
-  FAQ_DATA, 
-  EVENTS_DATA, 
+import {
+  HOWTO_VISA_APPLICATION,
+  FAQ_DATA,
+  EVENTS_DATA,
   LEADERSHIP,
-  ORGANIZATION 
+  ORGANIZATION
 } from '../data/seoData';
 
 const baseUrl = 'https://ireland.eecglobal.com';
@@ -212,19 +212,20 @@ export const generateEventSchemas = () => {
     "endDate": event.endDate,
     "eventStatus": `https://schema.org/${event.eventStatus}`,
     "eventAttendanceMode": `https://schema.org/${event.eventAttendanceMode}`,
-    "location": event.eventAttendanceMode === "OnlineEventAttendanceMode" 
+    "location": event.eventAttendanceMode === "OnlineEventAttendanceMode"
       ? {
-          "@type": "VirtualLocation",
-          "url": event.location.url
-        }
+        "@type": "VirtualLocation",
+        "url": event.location.url
+      }
       : {
-          "@type": "Place",
-          "name": event.location.name,
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": event.location.address
-          }
+        "@type": "Place",
+        "name": event.location.name,
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": event.location.address
         },
+        ...(event.location.url ? { "url": event.location.url } : {})
+      },
     "organizer": {
       "@type": "Organization",
       "@id": `${ORGANIZATION.mainSiteUrl}/#organization`,
@@ -241,7 +242,8 @@ export const generateEventSchemas = () => {
       "price": event.offers.price.toString(),
       "priceCurrency": event.offers.priceCurrency,
       "availability": `https://schema.org/${event.offers.availability}`,
-      "validFrom": event.offers.validFrom
+      "validFrom": event.offers.validFrom,
+      ...(event.offers.url ? { "url": event.offers.url } : {})
     },
     "image": event.image || "https://ai.eecglobal.com/assets/ireland-og-image.png"
   })).filter(event => event !== null);
@@ -253,7 +255,7 @@ export const generateEventSchemas = () => {
 export const generatePersonSchemas = () => {
   return LEADERSHIP.map((person) => {
     const personId = person.name.toLowerCase().replace(/\s+/g, '-');
-    
+
     const personSchema: any = {
       "@type": "Person",
       "@id": `${ORGANIZATION.mainSiteUrl}/#person-${personId}`,

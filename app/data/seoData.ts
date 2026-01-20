@@ -98,7 +98,7 @@ export const VIDEO_CONTENT = [
     name: "Ireland Student Visa Process 2026 - Complete Guide for Indian Students",
     description: "Comprehensive video guide explaining Ireland student visa requirements, documents, fees, and application process for Indian students planning to study abroad in 2026.",
     thumbnailUrl: "https://ai.eecglobal.com/assets/ireland-video-thumb.jpg",
-    uploadDate: "2025-11-15",
+    uploadDate: "2025-11-15T09:00:00+05:30",
     duration: "PT15M30S",
     contentUrl: "https://www.youtube.com/@eecgujarat",
     embedUrl: "https://www.youtube.com/embed/eecgujarat",
@@ -109,7 +109,7 @@ export const VIDEO_CONTENT = [
     name: "Stamp 1G Post Study Work Visa Ireland - 2 Year Stay Back Option",
     description: "Learn about Ireland's generous post-study work visa Stamp 1G under the Third Level Graduate Programme. How to extend your stay and find jobs after graduation.",
     thumbnailUrl: "https://ai.eecglobal.com/assets/stamp1g-video-thumb.jpg",
-    uploadDate: "2025-10-20",
+    uploadDate: "2025-10-20T09:00:00+05:30",
     duration: "PT12M45S",
     contentUrl: "https://www.youtube.com/@eecgujarat",
     embedUrl: "https://www.youtube.com/embed/eecgujarat",
@@ -197,9 +197,11 @@ export const EVENTS_DATA = [
     endDate: "2026-02-20T17:00:00+05:30",
     eventStatus: "EventScheduled",
     eventAttendanceMode: "OfflineEventAttendanceMode",
-    location: { name: "EEC Memnagar, Ahmedabad", address: "2nd Floor, Satya One, Opp. Manav Mandir, Helmet Circle, Memnagar, Ahmedabad - 380052" },
+    location: { name: "EEC Memnagar, Ahmedabad", address: "2nd Floor, Satya One, Opp. Manav Mandir, Helmet Circle, Memnagar, Ahmedabad - 380052", url: "https://maps.app.goo.gl/HabxCB5xTpg2CDwg6" },
     organizer: "EEC - Enbee Education Center",
-    offers: { price: 0, priceCurrency: "INR", availability: "InStock" }
+    performer: "EEC Team & University Representatives",
+    offers: { price: 0, priceCurrency: "INR", availability: "InStock", validFrom: "2025-12-01", url: "https://ireland.eecglobal.com" },
+    image: "https://ai.eecglobal.com/assets/ireland-og-image.png"
   }
 ];
 
