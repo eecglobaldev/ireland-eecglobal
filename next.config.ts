@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 import path from "path";
 
 const nextConfig: NextConfig = {
+  reactStrictMode: false,
   images: {
     unoptimized: false, // Enable Next.js Image optimization for better Core Web Vitals
     formats: ['image/avif', 'image/webp'], // Use modern image formats
@@ -25,35 +26,22 @@ const nextConfig: NextConfig = {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
   async headers() {
+    const isProd = process.env.NODE_ENV === 'production';
+    const mainHeaders: { key: string; value: string }[] = [
+      { key: 'Content-Security-Policy', value: "upgrade-insecure-requests" },
+      { key: 'X-Content-Type-Options', value: 'nosniff' },
+      { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+      { key: 'Referrer-Policy', value: 'origin-when-cross-origin' },
+      { key: 'X-Frame-Options', value: 'DENY' },
+      { key: 'X-XSS-Protection', value: '1; mode=block' },
+    ];
+    if (isProd) {
+      mainHeaders.push({ key: 'Cache-Control', value: 'public, max-age=3600, stale-while-revalidate=86400' });
+    }
     return [
       {
         source: '/:path*',
-        headers: [
-          {
-            key: 'Content-Security-Policy',
-            value: "upgrade-insecure-requests",
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin',
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY',
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block',
-          },
-        ],
+        headers: mainHeaders,
       },
       {
         source: '/:path*\\.(jpg|jpeg|png|gif|webp|svg|ico|avif)',

@@ -8,7 +8,7 @@ import { COURSE_SEARCH_URL } from '../constants';
 import {
     LayoutDashboard, Map, Calculator, Plane, FileText, Menu, X,
     Compass, GraduationCap, Search, ExternalLink, Users, ChevronRight,
-    MessageCircle, Phone
+    MessageCircle, Phone, BookOpen
 } from 'lucide-react';
 
 const Header = () => {
@@ -31,6 +31,7 @@ const Header = () => {
         { href: "/pay", label: "Pay", icon: Calculator },
         { href: "/family", label: "Family", icon: Users },
         { href: "/stay", label: "Stay", icon: Plane },
+        { href: "/guide", label: "Guide", icon: BookOpen },
     ];
 
     const isActive = (href: string) => {
@@ -46,7 +47,7 @@ const Header = () => {
                 suppressHydrationWarning
             >
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between" suppressHydrationWarning>
-                    <Link href="/" className="flex items-center space-x-2 group outline-none">
+                    <Link href="/" className="flex items-center space-x-2 group outline-none" prefetch={false}>
                         {/* EEC Logo */}
                         <div
                             className="relative h-9 sm:h-12 w-auto aspect-[4/1]"
@@ -58,6 +59,7 @@ const Header = () => {
                                 fill
                                 className="object-contain"
                                 priority
+                                sizes="(max-width: 640px) 120px, 200px"
                                 unoptimized
                             />
                         </div>
@@ -70,6 +72,7 @@ const Header = () => {
                                             alt="Ireland Flag"
                                             fill
                                             className="object-contain"
+                                            sizes="40px"
                                             unoptimized
                                             suppressHydrationWarning
                                         />
@@ -109,8 +112,9 @@ const Header = () => {
 
                         <button
                             onClick={() => setIsMenuOpen(!isMenuOpen)}
-                            className="lg:hidden p-2.5 sm:p-3 bg-white border border-slate-200 rounded-lg sm:rounded-xl text-slate-600 hover:bg-slate-50 transition-colors shadow-sm"
+                            className="lg:hidden min-h-[44px] min-w-[44px] p-2.5 sm:p-3 bg-white border border-slate-200 rounded-lg sm:rounded-xl text-slate-600 hover:bg-slate-50 transition-colors shadow-sm"
                             suppressHydrationWarning
+                            aria-label="Open menu"
                         >
                             <span suppressHydrationWarning>{isMenuOpen ? <X size={20} /> : <Menu size={20} />}</span>
                         </button>
@@ -134,6 +138,7 @@ const Header = () => {
                                     alt="EEC"
                                     fill
                                     className="object-contain"
+                                    sizes="96px"
                                     unoptimized
                                     suppressHydrationWarning
                                 />
@@ -146,6 +151,7 @@ const Header = () => {
                                         alt="Ireland Flag"
                                         fill
                                         className="object-contain"
+                                        sizes="20px"
                                         unoptimized
                                         suppressHydrationWarning
                                     />
@@ -160,7 +166,7 @@ const Header = () => {
                                 key={item.href}
                                 href={item.href}
                                 onClick={() => setIsMenuOpen(false)}
-                                className={`w-full flex items-center justify-between p-4 rounded-2xl transition-all
+                                className={`w-full flex items-center justify-between min-h-[44px] p-4 rounded-2xl transition-all
                   ${isActive(item.href)
                                         ? 'bg-emerald-50 text-emerald-700'
                                         : 'text-slate-600 hover:bg-slate-50'}`}

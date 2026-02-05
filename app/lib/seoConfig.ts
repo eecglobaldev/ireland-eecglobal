@@ -49,8 +49,28 @@ export const getPathSEOConfig = (path: string): {
       description: 'Ireland Stamp 1G post-study work visa guide: 24 months for Masters, 12 months for Bachelors. No employer sponsorship needed. €14.50/hr minimum wage. PR pathway after 5 years. EEC expert guidance.',
       canonicalPath: '/stay'
     },
+    '/guide': {
+      title: 'Ireland Study Guide 2026 | FAQs, Glossary, Compare Countries, Student Reviews | EEC',
+      description: 'Complete Ireland study abroad guide for Indian students: EEC & Ireland facts, immigration glossary, 20+ FAQs, Ireland vs UK/Canada/Australia comparison, verified student reviews. Free resource by Gujarat\'s #1 consultant.',
+      canonicalPath: '/guide'
+    },
   };
 
   return pathToConfig[path] || pathToConfig['/'];
 };
+
+/** Short breadcrumb labels for BreadcrumbList schema (no new content) */
+export const PATH_BREADCRUMB_LABELS: Record<string, string> = {
+  '/': 'Home',
+  '/money': 'Money',
+  '/cities': 'Cities',
+  '/apply': 'Apply',
+  '/visa': 'Visa',
+  '/pay': 'Pay',
+  '/family': 'Family',
+  '/stay': 'Stay',
+  '/guide': 'Guide',
+};
+
+export const ALL_PATHS = ['/', '/money', '/cities', '/apply', '/visa', '/pay', '/family', '/stay', '/guide'] as const;
 

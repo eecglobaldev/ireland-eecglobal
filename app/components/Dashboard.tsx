@@ -1,6 +1,7 @@
 "use client";
 import React from 'react';
 import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
+import ClientChart from './ClientChart';
 import { TrendingUp, Building2, BadgeEuro, Sparkles, ArrowUpRight, Zap, Target } from 'lucide-react';
 
 const SECTOR_DATA = [
@@ -84,7 +85,7 @@ const Dashboard: React.FC = () => {
         />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch px-3 sm:px-0">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch px-3 sm:px-0 content-visibility-auto">
         <div className="lg:col-span-8 bg-white p-5 sm:p-10 rounded-[2.5rem] shadow-sm border border-slate-100 overflow-hidden">
           <div className="flex items-center justify-between mb-10">
             <div>
@@ -95,24 +96,26 @@ const Dashboard: React.FC = () => {
               <div className="w-2 h-2 bg-emerald-500 rounded-full mr-2"></div> Steady Growth
             </div>
           </div>
-          <div className="w-full h-[250px] sm:h-[320px] relative min-w-0">
-            <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
-              <AreaChart data={GROWTH_DATA} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
-                <defs>
-                  <linearGradient id="colorGdp" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#10b981" stopOpacity={0.1} />
-                    <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
-                  </linearGradient>
-                </defs>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
-                <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{ fontSize: 10, fontWeight: 800, fill: '#94a3b8' }} />
-                <YAxis hide />
-                <Tooltip
-                  contentStyle={{ borderRadius: '1rem', border: 'none', boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1)', fontSize: '10px' }}
-                />
-                <Area type="monotone" dataKey="gdp" stroke="#10b981" strokeWidth={4} fillOpacity={1} fill="url(#colorGdp)" />
-              </AreaChart>
-            </ResponsiveContainer>
+          <div className="w-full h-[250px] sm:h-[320px] relative min-w-0" style={{ minHeight: 250 }}>
+            <ClientChart>
+              <ResponsiveContainer width="100%" height="100%" minWidth={280} minHeight={250}>
+                <AreaChart data={GROWTH_DATA} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
+                  <defs>
+                    <linearGradient id="colorGdp" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="5%" stopColor="#10b981" stopOpacity={0.1} />
+                      <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
+                    </linearGradient>
+                  </defs>
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f1f5f9" />
+                  <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{ fontSize: 10, fontWeight: 800, fill: '#94a3b8' }} />
+                  <YAxis hide />
+                  <Tooltip
+                    contentStyle={{ borderRadius: '1rem', border: 'none', boxShadow: '0 20px 25px -5px rgb(0 0 0 / 0.1)', fontSize: '10px' }}
+                  />
+                  <Area type="monotone" dataKey="gdp" stroke="#10b981" strokeWidth={4} fillOpacity={1} fill="url(#colorGdp)" />
+                </AreaChart>
+              </ResponsiveContainer>
+            </ClientChart>
           </div>
         </div>
 
@@ -124,23 +127,25 @@ const Dashboard: React.FC = () => {
             </h2>
             <p className="text-slate-500 text-[10px] font-bold uppercase tracking-widest mb-8">Where the money comes from</p>
 
-            <div className="w-full h-[200px] sm:h-[240px] relative mb-8 min-w-0">
-              <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
-                <PieChart>
-                  <Pie
-                    data={SECTOR_DATA}
-                    innerRadius="60%"
-                    outerRadius="80%"
-                    paddingAngle={8}
-                    dataKey="value"
-                  >
-                    {SECTOR_DATA.map((entry, index) => (
-                      <Cell key={`cell-${index}`} fill={entry.color} stroke="none" />
-                    ))}
-                  </Pie>
-                  <Tooltip contentStyle={{ background: '#0f172a', border: 'none', borderRadius: '12px', color: '#fff', fontSize: '10px' }} />
-                </PieChart>
-              </ResponsiveContainer>
+            <div className="w-full h-[200px] sm:h-[240px] relative mb-8 min-w-0" style={{ minHeight: 200 }}>
+              <ClientChart>
+                <ResponsiveContainer width="100%" height="100%" minWidth={200} minHeight={200}>
+                  <PieChart>
+                    <Pie
+                      data={SECTOR_DATA}
+                      innerRadius="60%"
+                      outerRadius="80%"
+                      paddingAngle={8}
+                      dataKey="value"
+                    >
+                      {SECTOR_DATA.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={entry.color} stroke="none" />
+                      ))}
+                    </Pie>
+                    <Tooltip contentStyle={{ background: '#0f172a', border: 'none', borderRadius: '12px', color: '#fff', fontSize: '10px' }} />
+                  </PieChart>
+                </ResponsiveContainer>
+              </ClientChart>
               <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
                 <span className="text-2xl font-black">94%</span>
                 <span className="text-[8px] text-slate-500 uppercase font-black tracking-widest text-center">Export Focus</span>

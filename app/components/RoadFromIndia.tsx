@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { XAxis, YAxis, Tooltip, ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, Radar } from 'recharts';
 import { COURSE_SEARCH_URL } from '../constants';
+import ClientChart from './ClientChart';
 import {
   ArrowRight, Globe, Landmark, MapPin, Briefcase, Monitor,
   GraduationCap, AlertCircle, Beaker, Stethoscope, Plane,
@@ -235,7 +236,7 @@ const RoadFromIndia: React.FC = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 sm:gap-8 items-stretch">
+        <div className="grid grid-cols-1 xl:grid-cols-12 gap-6 sm:gap-8 items-stretch content-visibility-auto">
           <div className={`xl:col-span-8 bg-gradient-to-br ${HUB_DATA[activeHub].theme} rounded-[2rem] sm:rounded-[3rem] p-6 sm:p-14 text-white shadow-2xl relative overflow-hidden flex flex-col justify-center min-h-[400px]`}>
             <div className="relative z-10 space-y-8 sm:space-y-10">
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6">
@@ -271,14 +272,16 @@ const RoadFromIndia: React.FC = () => {
           <div className="xl:col-span-4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-1 gap-6">
             <div className="bg-white rounded-[2rem] sm:rounded-[3rem] border border-slate-100 p-6 sm:p-8 shadow-sm flex flex-col justify-center items-center block min-h-[350px]">
               <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-6">City Guide</h4>
-              <div className="w-full h-48 sm:h-56 relative min-w-0">
-                <ResponsiveContainer width="100%" height="100%" minWidth={0} minHeight={0}>
-                  <RadarChart cx="50%" cy="50%" outerRadius="80%" data={HUB_DATA[activeHub].radar}>
-                    <PolarGrid stroke="#e2e8f0" />
-                    <PolarAngleAxis dataKey="subject" tick={{ fontSize: 9, fontWeight: 'bold', fill: '#94a3b8' }} />
-                    <Radar dataKey="A" stroke="#10b981" fill="#10b981" fillOpacity={0.6} />
-                  </RadarChart>
-                </ResponsiveContainer>
+              <div className="w-full h-48 sm:h-56 relative min-w-0" style={{ minHeight: 192 }}>
+                <ClientChart>
+                  <ResponsiveContainer width="100%" height="100%" minWidth={200} minHeight={192}>
+                    <RadarChart cx="50%" cy="50%" outerRadius="80%" data={HUB_DATA[activeHub].radar}>
+                      <PolarGrid stroke="#e2e8f0" />
+                      <PolarAngleAxis dataKey="subject" tick={{ fontSize: 9, fontWeight: 'bold', fill: '#94a3b8' }} />
+                      <Radar dataKey="A" stroke="#10b981" fill="#10b981" fillOpacity={0.6} />
+                    </RadarChart>
+                  </ResponsiveContainer>
+                </ClientChart>
               </div>
               <div className="mt-6 grid grid-cols-2 gap-4 w-full">
                 <div className="bg-slate-50 p-4 rounded-xl text-center">

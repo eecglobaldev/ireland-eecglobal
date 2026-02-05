@@ -9,8 +9,14 @@ import GTMBody from './components/GTMBody';
 import AdditionalMetaTags from './components/AdditionalMetaTags';
 import SEOHead from './components/SEOHead';
 import LLMNoscript from './components/LLMNoscript';
+import WebVitalsReporter from './components/WebVitalsReporter';
+import RelatedLinks from './components/RelatedLinks';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  preload: true,
+});
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -117,6 +123,7 @@ export default function RootLayout({
         <AdditionalMetaTags />
         <SEOHead />
         <LLMNoscript />
+        <WebVitalsReporter />
         <div className="min-h-screen bg-slate-50 flex flex-col" suppressHydrationWarning>
           <SuppressHydrationWarnings />
           <Header />
@@ -124,6 +131,7 @@ export default function RootLayout({
             <div className="max-w-7xl mx-auto" suppressHydrationWarning>
               {children}
             </div>
+            <RelatedLinks />
           </main>
           <Footer />
         </div>

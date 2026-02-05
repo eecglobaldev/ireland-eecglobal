@@ -5,6 +5,8 @@
   --foreground: #171717;
   --ireland-green: #009A49;
   --ireland-orange: #FF7900;
+  /* Min touch target for mobile (accessibility + performance) */
+  --touch-target: 44px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -18,4 +20,26 @@ body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  /* Smoother touch scrolling on mobile */
+  -webkit-overflow-scrolling: touch;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Below-the-fold sections: skip layout until near viewport (mobile perf) */
+@media (max-width: 768px) {
+  .content-visibility-auto {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 400px;
+  }
+}
+
+/* Prefer reduced motion: tone down animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

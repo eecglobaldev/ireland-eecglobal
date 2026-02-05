@@ -305,3 +305,49 @@ export const generatePersonSchemas = () => {
   });
 };
 
+/**
+ * Generate page-level BreadcrumbList schema
+ */
+export const generateBreadcrumbListSchema = (
+  path: string,
+  breadcrumbLabels: Record<string, string>
+) => {
+  const base = baseUrl;
+  const items: Array<{ "@type": string; position: number; name: string; item: string }> = [
+    { "@type": "ListItem", position: 1, name: breadcrumbLabels['/'] || 'Home', item: base + '/' }
+  ];
+  if (path !== '/') {
+    const pathSegments = path.split('/').filter(Boolean);
+    let acc = '';
+    pathSegments.forEach((segment, i) => {
+      acc += '/' + segment;
+      const label = breadcrumbLabels[acc] ?? segment.charAt(0).toUpperCase() + segment.slice(1);
+      items.push({ "@type": "ListItem", position: i + 2, name: label, item: base + acc });
+    });
+  }
+  return {
+    "@type": "BreadcrumbList",
+    "@id": `${base}${path}#breadcrumb`,
+    "itemListElement": items
+  };
+};
+
+/**
+ * Generate page-level WebPage schema with breadcrumb reference
+ */
+export const generateWebPageSchema = (path: string, seoConfig: { title: string; description: string; canonicalPath: string }) => {
+  const fullUrl = baseUrl + (path || '/');
+  return {
+    "@type": "WebPage",
+    "@id": `${fullUrl}#webpage`,
+    "url": fullUrl,
+    "name": seoConfig.title,
+    "description": seoConfig.description,
+    "datePublished": "2024-01-01",
+    "dateModified": new Date().toISOString().split('T')[0],
+    "breadcrumb": { "@id": `${fullUrl}#breadcrumb` },
+    "publisher": { "@id": `${ORGANIZATION.mainSiteUrl}/#organization` },
+    "inLanguage": "en-IN"
+  };
+};
+
